@@ -1,0 +1,366 @@
+@import url(fonts.css);
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: Boogaloo;
+  background-image: url('../assets/img/5_background/complete_background.png');
+  background-size: fill;
+  height: 100%;
+  max-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.scrollbox {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  margin: 0;
+  display: block;
+}
+
+canvas {
+  background-color: #994409;
+  border-radius: 10px;
+  height: 100%;
+  max-height: 100vh;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000000;
+}
+
+.startScreen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url('../assets/img/9_intro_outro_screens/start/startscreen_1.png');
+  background-position: center;
+  background-size: cover;
+  max-height: 100vh;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000000;
+}
+
+.startScreenFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#gameScreen {
+  position: absolute;
+  top: 100px;
+  border-radius: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.nav-header {
+  background-color: #994409;
+  border-radius: 10px 10px 0 0;
+  height: 10%;
+  width: 100%; 
+}
+
+#instructionsButton {
+  position: absolute;
+  top: 90%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+}
+
+#instructionsOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 8px;
+}
+
+#instructionsCloseLayer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+#startButton {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-footer {
+  background-color: #994409;
+  border-radius: 0 0 10px 10px;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.nav-link {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  padding: 8px;
+  color: #FFCB31;
+}
+
+.nav-link:hover {
+  color: #000000;
+}
+
+.btn-style {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 8px;
+  color: #000000;
+  background-color: #DE8E2F;
+  border-radius: 24px;
+  box-shadow: 2px 2px 7px #000000;
+  cursor: pointer;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-style:hover {
+  background-color: #FFCB31;
+}
+
+.header-btn-style {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 8px;
+  color: #000000;
+  background-color: #DE8E2F;
+  border-radius: 50px;
+  box-shadow: 2px 2px 7px #000000;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-btn-style:hover {
+  background-color: #FFCB31;
+}
+
+button {
+  background-color: #DE8E2F;
+  border: solid 1px black;
+  border-radius: 8px;
+  width: 200px;
+  height: 50px;
+  font-family: Boogaloo;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #FFCB31;
+}
+
+.playAgainButton {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#instructions {
+  width: 500px;
+  height: 25px;
+  background-color: #FFCB31;
+  border: solid 1px black;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 5px;
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#endScreenLost {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url('../assets/img/9_intro_outro_screens/game_over/game over.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;  
+  height: 99%;
+}
+
+#endScreenWon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url('../assets/img/9_intro_outro_screens/game_over/game over.png');
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  height: 99%;
+}
+
+.lost-won {
+  font-size: 56px;
+  color: red;
+  rotate: -20deg;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  text-shadow: 2px 2px 7px #000000;
+}
+
+#soundcontrols {
+  display: none;
+  justify-content: flex-end;
+  padding-right: 36px;
+  gap: 12px;
+  position: absolute;
+  top: 0.5%;
+  width: 100%;
+}
+
+#mobilecontrols {
+  display: none;
+  justify-content: space-between;
+  padding-left: 36px;
+  padding-right: 36px;
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  opacity: 70%;
+}
+
+#leftContainer,
+#rightContainer {
+  display: flex;
+  gap: 12px;
+}
+
+#moveright img {
+  transform: translateX(5px);
+}
+
+#moveleft img {
+  transform: translateX(2px);
+}
+
+#moveleft,
+#moveright,
+#jump,
+#throw {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  
+}
+
+.maincontainer {
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-top: 36px;
+  background-color: #DE8E2F;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#footer {
+  background-color: #DE8E2F;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#turnDeviceContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#turnDeviceScreen img{
+  width: 150px;
+  height: 150px;
+  animation: turning 2s infinite linear;
+}
+
+@keyframes turning {
+  from {rotate: 45deg;}
+  to {rotate: -45deg;}
+}
+
+
+@media(max-height: 720px) {
+  h1 {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 720px) {
+  canvas,
+  .startScreen {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-height: 480px) {
+  canvas,
+  .startScreen
+    {
+    height: 100%;
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}

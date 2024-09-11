@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el pollo loco</title>
+    <link rel="icon" type="image/png" href="assets/img/gameicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="classes/audio.class.js"></script>
+    <script src="classes/drawable-object.class.js"></script>
+    <script src="classes/movable-object.class.js"></script>
+    <script src="classes/background-object.class.js"></script>
+    <script src="classes/character.class.js"></script>
+    <script src="classes/chicken.class.js"></script>
+    <script src="classes/chicken-small.class.js"></script>
+    <script src="classes/cloud.class.js"></script>
+    <script src="classes/character-statusbar.class.js"></script>
+    <script src="classes/endboss-statusbar.class.js"></script>
+    <script src="classes/coin-statusbar.class.js"></script>
+    <script src="classes/bottle-statusbar.class.js"></script>
+    <script src="classes/world.class.js"></script>
+    <script src="classes/throwable-object.class.js"></script>
+    <script src="classes/coin.class.js"></script>
+    <script src="classes/bottle.class.js"></script>
+    <script src="classes/keyboard.class.js"></script>
+    <script src="classes/endboss.class.js"></script>
+    <script src="classes/level.class.js"></script>
+    <script src="levels/level1.js"></script>
+    <script src="js/game.js"></script>
+</head>
+
+<body onload="init()">
+    <div id="gameScreen">
+        <canvas id="canvas" width="720" height="480" class="desktopDisplaySize"></canvas>
+        <div id="startScreen" class="startScreen startScreenFlex">
+            <div class="nav-header">
+                <div id="startButton" class="header-btn-style" onclick="startGame()">START GAME</div>
+            </div>
+            <div class="nav-footer">
+                <div id="instructionsButton" class="header-btn-style" onclick="showInstructions()"><img
+                        src="assets/img/Icons/instructions.png" alt=""></div>
+                <a href="legalnotice.html" class="nav-link" onclick="setOverflowScroll()">LEGAL NOTICE</a>
+                <a href="privacypolicy.html" class="nav-link" onclick="setOverflowScroll()">PRIVACY POLICY</a>
+            </div>
+            <div id="instructionsCloseLayer" class="d-none" onclick="closeInstructions()"></div>
+            <div id="instructionsOverlay" class="d-none" onclick="showInstructions()">
+                <h3>INSTRUCTIONS</h2>
+                    <span>Move Pepe across the level to right direction by pressing "D-Key" on your keyboard or the
+                        "right-Button" if you are using mobile device.
+                        If you need to runaway backwards you can press the "A-Key" on your keyboard as well as the
+                        "left-Button" on mobile device.
+                        Defeat the upcoming opponents, really bad mood chicken, by jumping on them with the "Space-Key"
+                        or "up-Button" on mobile device.
+                        If you are precise by throwing something, you can try to hit the chicken with a bottle as well.
+                        But be careful: you will need the bottles for the last chicken. It is probably better to keep
+                        the bootles until you reach him.
+                        Anyway, if you are forced to throw a collected bottle press the "E-Key" on your Keyboard
+                        respectively the "bottle-Button" on you mobile device.
+                        </br>
+                        </br>
+                        Good luck my friend!
+                    </span>
+            </div>
+        </div>
+
+        <div id="endScreenLost" class="d-none">
+            <button class="playAgainButton" onclick="startGame()">RESTART</button>
+            <p id="youLost" class="lost-won">You Lost!</p>
+        </div>
+
+        <div id="endScreenWon" class="d-none">
+            <button class="playAgainButton" onclick="startGame()">RESTART</button>
+            <p id="youWon" class="lost-won">You Won!</p>
+        </div>
+
+        <div id="soundcontrols">
+            <div id="gameSoundButton" class="header-btn-style"><img src="assets/img/Icons/soundon.png"
+                    onclick="gameSoundOffButton()" alt=""></div>
+        </div>
+        <div id="mobilecontrols">
+            <div id="leftContainer">
+                <div id="moveleft" class="header-btn-style"><img src="assets/img/Icons/moveleft.png" alt=""></div>
+                <div id="moveright" class="header-btn-style"><img src="assets/img/Icons/moveright.png" alt=""></div>
+            </div>
+            <div id="rightContainer">
+                <div id="jump" class="header-btn-style"><img src="assets/img/Icons/jump.png" alt="">
+                </div>
+
+                <div id="throw" class="header-btn-style"><img src="assets/img/Icons/throw.png" alt="">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="turnDeviceContainer">
+        <div id="turnDeviceScreen" class="d-none">
+            <img src="assets/img/Icons/turndevice.png" alt="">
+        </div>
+    </div>
+
+</body>
+
+</html>
